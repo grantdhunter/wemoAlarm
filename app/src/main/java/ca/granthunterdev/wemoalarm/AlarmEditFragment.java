@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
@@ -43,9 +44,11 @@ public class AlarmEditFragment extends Fragment {
         mEventBus = EventBus.getDefault();
         mEventBus.register(this);
 
-        mWemoHandler = new WemoHandler(getActivity().getBaseContext());
-        wemoSpinner.setAdapter(mWemoDeviceListAdapter);
+    }
 
+    @AfterViews
+    public void afterViews(){
+        mWemoHandler = new WemoHandler(getActivity().getBaseContext());
     }
 
     @Override
@@ -56,7 +59,10 @@ public class AlarmEditFragment extends Fragment {
     }
 
     public void onEventMainThread(DeviceListEvent event) {
+        Log.i("event", "Device List Event");
         Log.i("event", String.valueOf(event.getDeviceList()));
+        mWemoDeviceListAdapter.populateList(event.getDeviceList());
+        wemoSpinner.setAdapter(mWemoDeviceListAdapter);
     }
 
 }

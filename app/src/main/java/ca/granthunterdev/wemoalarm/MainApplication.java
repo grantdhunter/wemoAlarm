@@ -28,7 +28,7 @@ public class MainApplication extends Application {
             @Override
             protected void doMigration(SQLiteDatabase sqLiteDatabase) {
                 sqLiteDatabase.execSQL("CREATE TABLE ALARMS(" +
-                                "id INT PRIMARY KEY AUTOINCREMENT," +
+                                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                 "deviceUdn TEXT," +
                                 "name TEXT," +
                                 "daysOfWeek INT," +

@@ -29,21 +29,18 @@ public class WemoDeviceListAdapter  extends BaseAdapter implements SpinnerAdapte
     public WemoDeviceListAdapter() {
 
     }
+    public void populateList(ArrayList arrayList){
+        mWemoDevices = arrayList;
+    }
 
+    @AfterInject
+    void initAdapter(){
+        mWemoDevices = new ArrayList();
+    }
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         return null;
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-
     }
 
     @Override
@@ -80,12 +77,12 @@ public class WemoDeviceListAdapter  extends BaseAdapter implements SpinnerAdapte
 
     @Override
     public int getItemViewType(int position) {
-        return 0;
+        return 1;
     }
 
     @Override
     public int getViewTypeCount() {
-        return 0;
+        return 1;
     }
 
     @Override
@@ -96,5 +93,6 @@ public class WemoDeviceListAdapter  extends BaseAdapter implements SpinnerAdapte
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
+
     }
 }
