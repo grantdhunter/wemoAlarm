@@ -27,6 +27,6 @@ public class WemoAlarmItemView extends LinearLayout {
     public void bind(WemoAlarm wemoAlarm) {
 
         nameTextView.setText(wemoAlarm.getName());
-        timeTextView.setText("" + wemoAlarm.getHour() + ":" + wemoAlarm.getMinutes());
+        timeTextView.setText(wemoAlarm.getHour() + ":" + wemoAlarm.getMinutes());
     }
 }

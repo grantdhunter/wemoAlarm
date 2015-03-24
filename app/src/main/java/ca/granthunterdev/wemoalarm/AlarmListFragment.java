@@ -76,6 +76,8 @@ public class AlarmListFragment extends Fragment implements RadialTimePickerDialo
         Log.i("log","on list item click");
         mEventBus.post(new EditEvent(wemoAlarm));
     }
+
+
     @Override
     public void onTimeSet(RadialTimePickerDialog radialTimePickerDialog, int hourOfDay, int minutes) {
         final WemoAlarm wemoAlarm = new WemoAlarm();
