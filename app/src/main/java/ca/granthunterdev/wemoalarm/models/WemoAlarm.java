@@ -31,15 +31,23 @@ public class WemoAlarm extends Model implements Serializable {
 
     @Column("name")
     private String mName;
-
+    /*
+     * sunday       00000001
+     * monday       00000010
+     * tuesday      00000100
+     * wednesday    00001000
+     * thursday     00010000
+     * friday       00100000
+     * saturday     01000000
+     */
     @Column("daysOfWeek")
-    private long mDaysOfWeek;
+    private int mDaysOfWeek;
 
     @Column("hour")
-    private long mHour;
+    private int mHour;
 
-    @Column("Minutes")
-    private long mMinutes;
+    @Column("minutes")
+    private int mMinutes;
 
     @Column("alarmSound")
     private String mAlarmSound;
@@ -50,6 +58,11 @@ public class WemoAlarm extends Model implements Serializable {
 
     public WemoAlarm() {
 
+    }
+
+    public WemoAlarm(int hour, int minutes) {
+        this.mHour = hour;
+        this.mMinutes = minutes;
     }
 
     public long getId() {
@@ -76,7 +89,7 @@ public class WemoAlarm extends Model implements Serializable {
         this.mName = name;
     }
 
-    public long getDaysOfWeek() {
+    public int getDaysOfWeek() {
         return mDaysOfWeek;
     }
 
@@ -84,7 +97,7 @@ public class WemoAlarm extends Model implements Serializable {
         this.mDaysOfWeek = daysOfWeek;
     }
 
-    public long getHour() {
+    public int getHour() {
         return mHour;
     }
 
@@ -92,7 +105,7 @@ public class WemoAlarm extends Model implements Serializable {
         this.mHour = hour;
     }
 
-    public long getMinutes() {
+    public int getMinutes() {
         return mMinutes;
     }
 
@@ -122,11 +135,19 @@ public class WemoAlarm extends Model implements Serializable {
         if (DateFormat.is24HourFormat(context)) {
             time = this.getHour() + ":" + this.getMinutes();
         } else {
-            time = this.getHour() % 12 + ":" + this.getMinutes();
+            int hour = this.getHour() % 12;
+            int hour12 = hour == 0 ? 12 : hour;
+
+            time = hour12 + ":" + this.getMinutes();
         }
         return time;
     }
+
     public String displayAmPm() {
-            return this.getHour() >= 12 ? "PM" : "AM";
+        return this.getHour() >= 12 ? "PM" : "AM";
+    }
+
+    public int setDayOfWeek(int day, boolean enabled){
+        this.mDaysOfWeek
     }
 }

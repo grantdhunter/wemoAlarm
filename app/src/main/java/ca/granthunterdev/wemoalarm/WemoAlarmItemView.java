@@ -34,7 +34,7 @@ public class WemoAlarmItemView extends LinearLayout {
 
         nameTextView.setText(wemoAlarm.getName());
         timeTextView.setText(wemoAlarm.displayTime(mContext));
-        if (DateFormat.is24HourFormat(mContext)) {
+        if (!DateFormat.is24HourFormat(mContext)) {
             ampmTextView.setText(wemoAlarm.displayAmPm());
         }
     }

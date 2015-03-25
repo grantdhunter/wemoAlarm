@@ -51,7 +51,6 @@ public class AlarmListFragment extends Fragment implements RadialTimePickerDialo
         fragmentManager = getActivity().getSupportFragmentManager();
 
 
-
         return null;
     }
 
@@ -74,17 +73,17 @@ public class AlarmListFragment extends Fragment implements RadialTimePickerDialo
     }
 
     @ItemClick(R.id.alarmListView)
-    public void alarmListViewClicked(WemoAlarm wemoAlarm){
-        Log.i("log","on list item click");
+    public void alarmListViewClicked(WemoAlarm wemoAlarm) {
+        Log.i("log", "on list item click");
         mEventBus.post(new EditEvent(wemoAlarm));
     }
 
 
     @Override
     public void onTimeSet(RadialTimePickerDialog radialTimePickerDialog, int hourOfDay, int minutes) {
-        final WemoAlarm wemoAlarm = new WemoAlarm();
-        wemoAlarm.setHour(hourOfDay);
-        wemoAlarm.setMinutes(minutes);
+        Log.i("onTimeSet", String.valueOf(minutes));
+        final WemoAlarm wemoAlarm = new WemoAlarm(hourOfDay, minutes);
+
         wemoAlarm.saveAsync(new Model.OnSavedCallback() {
             @Override
             public void onSaved() {

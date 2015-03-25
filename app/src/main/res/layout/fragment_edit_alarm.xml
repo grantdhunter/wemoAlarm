@@ -12,16 +12,14 @@
             android:id="@+id/timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7:00"
             android:textSize="100sp"
-            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="AM"
             android:id="@+id/ampmTextView"
             android:textSize="20sp"
             android:layout_marginTop="30dp"
@@ -31,6 +29,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:id="@+id/wemoSpinner"
             android:spinnerMode="dialog"
             android:layout_below="@+id/timeTextView" />
@@ -53,38 +52,51 @@
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/sundayToggle"
                 android:text="S"
-                style="@style/DayOfWeekStyle"/>
+                style="@style/DayOfWeekStyle" />
+
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/mondayToggle"
                 android:text="M"
-                style="@style/DayOfWeekStyle"/>
+                style="@style/DayOfWeekStyle" />
+
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/tuesdayToggle"
                 android:text="T"
-                style="@style/DayOfWeekStyle"/>
+                style="@style/DayOfWeekStyle" />
+
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/wednesdayToggel"
                 android:text="W"
-                style="@style/DayOfWeekStyle"/>
+                style="@style/DayOfWeekStyle" />
+
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/thursdayToggle"
                 android:text="T"
-                style="@style/DayOfWeekStyle"/>
+                style="@style/DayOfWeekStyle" />
+
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/fridayToggle"
                 android:text="F"
-                style="@style/DayOfWeekStyle"/>
+                style="@style/DayOfWeekStyle" />
+
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/saturdayToggle"
                 android:text="S"
-                style="@style/DayOfWeekStyle"/>
+                style="@style/DayOfWeekStyle" />
 
         </ca.granthunterdev.wemoalarm.LayoutMaxWidth>
     </RelativeLayout>
