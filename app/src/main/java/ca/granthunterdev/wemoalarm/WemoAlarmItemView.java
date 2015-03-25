@@ -1,6 +1,7 @@
 package ca.granthunterdev.wemoalarm;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,19 +15,27 @@ import ca.granthunterdev.wemoalarm.models.WemoAlarm;
  */
 @EViewGroup(R.layout.wemo_alarm_item)
 public class WemoAlarmItemView extends LinearLayout {
+
+    private Context mContext;
     @ViewById
     TextView nameTextView;
 
     @ViewById
     TextView timeTextView;
 
+    @ViewById
+    TextView ampmTextView;
     public WemoAlarmItemView(Context context) {
         super(context);
+        this.mContext = context;
     }
 
     public void bind(WemoAlarm wemoAlarm) {
 
         nameTextView.setText(wemoAlarm.getName());
-        timeTextView.setText(wemoAlarm.getHour() + ":" + wemoAlarm.getMinutes());
+        timeTextView.setText(wemoAlarm.displayTime(mContext));
+        if (DateFormat.is24HourFormat(mContext)) {
+            ampmTextView.setText(wemoAlarm.displayAmPm());
+        }
     }
 }

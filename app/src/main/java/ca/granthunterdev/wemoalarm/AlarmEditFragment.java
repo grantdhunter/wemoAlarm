@@ -1,6 +1,7 @@
 package ca.granthunterdev.wemoalarm;
 
 import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -27,7 +28,8 @@ import de.greenrobot.event.EventBus;
 public class AlarmEditFragment extends Fragment {
     private EventBus mEventBus;
     private WemoHandler mWemoHandler;
-
+    private WemoAlarm wemoAlarm;
+    private Context mContext;
     @Bean
     WemoDeviceListAdapter mWemoDeviceListAdapter;
 
@@ -44,11 +46,16 @@ public class AlarmEditFragment extends Fragment {
         mEventBus = EventBus.getDefault();
         mEventBus.register(this);
 
+        wemoAlarm = (WemoAlarm) getArguments().getSerializable("wemoAlarm");
+
+        mContext =  this.getActivity().getBaseContext();
     }
 
     @AfterViews
-    public void afterViews(){
+    public void afterViews() {
         mWemoHandler = new WemoHandler(getActivity().getBaseContext());
+
+        timeTextView.setText(wemoAlarm.displayTime(mContext));
     }
 
     @Override

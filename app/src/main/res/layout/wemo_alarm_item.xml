@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp">
 
     <TextView
         android:id="@+id/timeTextView"
@@ -10,12 +11,22 @@
         android:text="7:00"
         android:textSize="80sp"/>
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="AM"
+        android:id="@+id/ampmTextView"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@id/timeTextView"
+        android:layout_alignTop="@+id/timeTextView"
+        android:textSize="20sp"/>
+    <TextView
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="name"
         android:layout_alignBaseline="@+id/timeTextView"
         android:layout_alignBottom="@+id/timeTextView"
-        android:layout_toEndOf="@+id/timeTextView"
+        android:layout_toEndOf="@+id/ampmTextView"
         android:textSize="40sp"/>
 </RelativeLayout>

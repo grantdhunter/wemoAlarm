@@ -31,6 +31,7 @@ public class WemoDeviceListAdapter  extends BaseAdapter implements SpinnerAdapte
     }
     public void populateList(ArrayList arrayList){
         mWemoDevices = arrayList;
+        this.notifyDataSetChanged();
     }
 
     @AfterInject

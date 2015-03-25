@@ -1,9 +1,14 @@
 package ca.granthunterdev.wemoalarm.models;
 
-import android.net.Uri;
+import android.content.Context;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import android.text.format.DateFormat;
+
 
 import se.emilsjolander.sprinkles.Model;
 import se.emilsjolander.sprinkles.annotations.AutoIncrement;
@@ -15,7 +20,7 @@ import se.emilsjolander.sprinkles.annotations.Column;
  * Created by Grant on 2/13/2015.
  */
 @Table("Alarms")
-public class WemoAlarm extends Model implements Serializable{
+public class WemoAlarm extends Model implements Serializable {
     @Key
     @AutoIncrement
     @Column("id")
@@ -43,7 +48,7 @@ public class WemoAlarm extends Model implements Serializable{
     private boolean mEnabled;
 
 
-    public WemoAlarm(){
+    public WemoAlarm() {
 
     }
 
@@ -109,5 +114,19 @@ public class WemoAlarm extends Model implements Serializable{
 
     public void setEnabled(boolean enabled) {
         this.mEnabled = enabled;
+    }
+
+    public String displayTime(Context context) {
+        String time;
+
+        if (DateFormat.is24HourFormat(context)) {
+            time = this.getHour() + ":" + this.getMinutes();
+        } else {
+            time = this.getHour() % 12 + ":" + this.getMinutes();
+        }
+        return time;
+    }
+    public String displayAmPm() {
+            return this.getHour() >= 12 ? "PM" : "AM";
     }
 }

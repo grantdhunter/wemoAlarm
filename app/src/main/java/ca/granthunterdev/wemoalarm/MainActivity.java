@@ -34,6 +34,10 @@ public class MainActivity extends FragmentActivity {
     public void onEventMainThread(EditEvent event){
        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         AlarmEditFragment alarmEditFragment = new AlarmEditFragment_();
+
+        Bundle arg = new Bundle();
+        arg.putSerializable("wemoAlarm", event.getmWemoAlarm());
+        alarmEditFragment.setArguments(arg);
         ft.replace(R.id.fragmentContainer, alarmEditFragment)
                 .addToBackStack(null)
                 .commit();

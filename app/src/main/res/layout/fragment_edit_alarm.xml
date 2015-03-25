@@ -1,21 +1,91 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ca.granthunterdev.wemoalarm.AlarmEditFragment">
 
-    <TextView
-        android:id="@+id/timeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7:00"
-        android:textSize="100sp"
-        android:layout_gravity="center_horizontal"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wemoSpinner"
-        android:layout_gravity="center"
-        android:spinnerMode="dialog"/>
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7:00"
+            android:textSize="100sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="AM"
+            android:id="@+id/ampmTextView"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/timeTextView" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wemoSpinner"
+            android:spinnerMode="dialog"
+            android:layout_below="@+id/timeTextView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wemoSpinner"
+            android:id="@+id/weekdayTitleTextView"
+            android:textSize="30sp"
+            android:text="@string/weekdayTitle" />
+
+        />
+
+        <ca.granthunterdev.wemoalarm.LayoutMaxWidth
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/weekdayTitleTextView">
+
+            <ca.granthunterdev.wemoalarm.DayButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S"
+                style="@style/DayOfWeekStyle"/>
+            <ca.granthunterdev.wemoalarm.DayButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M"
+                style="@style/DayOfWeekStyle"/>
+            <ca.granthunterdev.wemoalarm.DayButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T"
+                style="@style/DayOfWeekStyle"/>
+            <ca.granthunterdev.wemoalarm.DayButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="W"
+                style="@style/DayOfWeekStyle"/>
+            <ca.granthunterdev.wemoalarm.DayButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T"
+                style="@style/DayOfWeekStyle"/>
+            <ca.granthunterdev.wemoalarm.DayButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="F"
+                style="@style/DayOfWeekStyle"/>
+            <ca.granthunterdev.wemoalarm.DayButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S"
+                style="@style/DayOfWeekStyle"/>
+
+        </ca.granthunterdev.wemoalarm.LayoutMaxWidth>
+    </RelativeLayout>
 </FrameLayout>

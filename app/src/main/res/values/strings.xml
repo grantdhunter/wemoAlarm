@@ -7,5 +7,6 @@
     <string name="empty">Empty List</string>
     <string name="toggleLightButton">Toggle Light</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weekdayTitle">Day of the week</string>
 
 </resources>
