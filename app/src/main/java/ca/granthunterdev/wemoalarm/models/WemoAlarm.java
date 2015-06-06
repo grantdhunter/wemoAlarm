@@ -40,6 +40,13 @@ public class WemoAlarm extends Model implements Serializable {
      * friday       00100000
      * saturday     01000000
      */
+    public static int SUNDAY = 1;
+    public static int MONDAY = 2;
+    public static int TUESDAY = 4;
+    public static int WEDNESDAY = 8;
+    public static int THURSDAY = 16;
+    public static int FRIDAY = 32;
+    public static int SATURDAY = 64;
     @Column("daysOfWeek")
     private int mDaysOfWeek;
 
@@ -148,6 +155,11 @@ public class WemoAlarm extends Model implements Serializable {
     }
 
     public int setDayOfWeek(int day, boolean enabled){
-        this.mDaysOfWeek
+        if(enabled) {
+            this.mDaysOfWeek |= day;
+        } else {
+            this.mDaysOfWeek &= day;
+        }
+        return this.mDaysOfWeek;
     }
 }

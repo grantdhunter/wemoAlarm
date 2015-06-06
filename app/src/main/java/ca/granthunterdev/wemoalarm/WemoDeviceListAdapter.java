@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Grant on 2/19/2015.
  */
 @EBean
-public class WemoDeviceListAdapter  extends BaseAdapter implements SpinnerAdapter {
+public class WemoDeviceListAdapter  extends BaseAdapter {
     List<WeMoDevice> mWemoDevices;
 
     @RootContext
@@ -40,17 +40,12 @@ public class WemoDeviceListAdapter  extends BaseAdapter implements SpinnerAdapte
     }
 
     @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return null;
-    }
-
-    @Override
     public int getCount() {
         return mWemoDevices.size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public WeMoDevice getItem(int position) {
         return mWemoDevices.get(position);
     }
 
@@ -60,31 +55,19 @@ public class WemoDeviceListAdapter  extends BaseAdapter implements SpinnerAdapte
     }
 
     @Override
-    public boolean hasStableIds() {
-        return false;
-    }
-
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         WemoDeviceItemView wemoDeviceItemView;
 
         if(convertView == null){
-            wemoDeviceItemView = new WemoDeviceItemView_(context);
+            wemoDeviceItemView = WemoDeviceItemView_.build(context);
         } else {
             wemoDeviceItemView = (WemoDeviceItemView) convertView;
         }
+
+        wemoDeviceItemView.bind(getItem(position));
         return wemoDeviceItemView;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return 1;
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 1;
-    }
 
     @Override
     public boolean isEmpty() {

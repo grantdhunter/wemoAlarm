@@ -31,8 +31,7 @@ public class WemoHandler implements WeMoSDKContext.NotificationListener {
         switch (event) {
             case WeMoSDKContext.REFRESH_LIST:
 
-                ArrayList<String> uuIdList = mWeMoSDKContext.getListOfWeMoDevicesOnLAN();
-                mEventBus.post(new DeviceListEvent(getDeviceList(uuIdList)));
+                refreshList();
 
                 break;
             case WeMoSDKContext.SET_STATE:
@@ -40,10 +39,16 @@ public class WemoHandler implements WeMoSDKContext.NotificationListener {
             case WeMoSDKContext.CHANGE_STATE:
                 break;
             case WeMoSDKContext.ADD_DEVICE:
+                refreshList();
                 break;
             case WeMoSDKContext.REMOVE_DEVICE:
                 break;
         }
+    }
+
+    private void refreshList() {
+        ArrayList<String> uuIdList = mWeMoSDKContext.getListOfWeMoDevicesOnLAN();
+        mEventBus.post(new DeviceListEvent(getDeviceList(uuIdList)));
     }
 
     private ArrayList getDeviceList(ArrayList<String> uuIdList) {

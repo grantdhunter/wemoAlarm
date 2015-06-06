@@ -31,8 +31,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:id="@+id/wemoSpinner"
-            android:spinnerMode="dialog"
-            android:layout_below="@+id/timeTextView" />
+            android:spinnerMode="dropdown"
+            android:layout_below="@+id/timeTextView"
+            android:layout_marginTop="32dp"
+            android:prompt="@string/spinner_title"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,14 +42,17 @@
             android:layout_below="@+id/wemoSpinner"
             android:id="@+id/weekdayTitleTextView"
             android:textSize="30sp"
-            android:text="@string/weekdayTitle" />
+            android:text="@string/weekdayTitle"
+            android:layout_marginTop="32dp"/>
 
         />
 
         <ca.granthunterdev.wemoalarm.LayoutMaxWidth
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/weekdayTitleTextView">
+            android:layout_height="wrap_content"
+            android:id="@+id/weekButtonGroup"
+            android:layout_below="@+id/weekdayTitleTextView"
+            android:layout_marginTop="16dp">
 
             <ca.granthunterdev.wemoalarm.DayButton
                 android:layout_width="wrap_content"
@@ -99,5 +104,24 @@
                 style="@style/DayOfWeekStyle" />
 
         </ca.granthunterdev.wemoalarm.LayoutMaxWidth>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weekButtonGroup"
+            android:id="@+id/alarmSoundButton"
+            android:drawableLeft="@drawable/ic_notifications"
+            android:layout_marginTop="32dp"
+            style="?android:attr/borderlessButtonStyle"/>
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/ic_delete"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            style="?android:attr/borderlessButtonStyle"/>
+
+
     </RelativeLayout>
 </FrameLayout>
